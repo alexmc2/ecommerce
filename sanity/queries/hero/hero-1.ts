@@ -11,6 +11,11 @@ export const hero1Query = groq`
     _key,
     tagLine,
     title,
+    titleStyle{
+      fontFamily,
+      fontWeight,
+      fontSize,
+    },
     body[]{
       ${bodyQuery}
     },

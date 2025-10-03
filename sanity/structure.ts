@@ -9,6 +9,8 @@ import {
   Menu,
   Settings,
   Newspaper,
+  Package,
+  Boxes,
 } from "lucide-react";
 
 export const structure = (S: any, context: any) =>
@@ -53,6 +55,20 @@ export const structure = (S: any, context: any) =>
               }),
             ])
         ),
+      orderableDocumentListDeskItem({
+        type: "product",
+        title: "Products",
+        icon: Package,
+        S,
+        context,
+      }),
+      orderableDocumentListDeskItem({
+        type: "collection",
+        title: "Collections",
+        icon: Boxes,
+        S,
+        context,
+      }),
       orderableDocumentListDeskItem({
         type: "faq",
         title: "FAQs",

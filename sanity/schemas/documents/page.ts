@@ -62,6 +62,7 @@ export default defineType({
         { type: "form-contact" },
         { type: "location-map" },
         { type: "all-posts" },
+        { type: "product-grid" },
       ],
       options: {
         insertMenu: {
@@ -145,6 +146,11 @@ export default defineType({
               name: "all-posts",
               title: "All Posts",
               of: ["all-posts"],
+            },
+            {
+              name: "commerce",
+              title: "Commerce",
+              of: ["product-grid"],
             },
           ],
           views: [

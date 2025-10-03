@@ -10,6 +10,7 @@ import { ModeToggle } from '@/components/menu-toggle';
 import { cn } from '@/lib/utils';
 import { NAVIGATION_QUERYResult, SETTINGS_QUERYResult } from '@/sanity.types';
 import Logo from '@/components/logo';
+import CartButton from '@/components/store/CartButton';
 
 type HeaderClientProps = {
   navigation: NAVIGATION_QUERYResult;
@@ -142,6 +143,9 @@ export default function HeaderClient({
       ? 'text-foreground hover:text-foreground'
       : 'text-white/90 hover:text-white'
   );
+  const cartButtonClass = navIsSolid
+    ? undefined
+    : 'border-white/40 bg-white/10 text-white hover:border-white/60 hover:bg-white/20 hover:text-white';
 
   return (
     <>
@@ -185,15 +189,19 @@ export default function HeaderClient({
               navigation={navigation}
               isSolid={navIsSolid}
             />
-            <ModeToggle className={modeToggleClass} />
+            <div className="flex items-center gap-3">
+              <CartButton className={cartButtonClass} />
+              <ModeToggle className={modeToggleClass} />
+            </div>
           </div>
 
           <div
             className={cn(
-              'flex items-center gap-2 xl:hidden',
+              'flex items-center gap-3 xl:hidden',
               textClass
             )}
           >
+            <CartButton className={cartButtonClass} />
             <ModeToggle className={modeToggleClass} />
             <MobileNav
               navigation={navigation}

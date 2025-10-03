@@ -6,7 +6,6 @@ import type { ContactFormBlock } from "@/components/blocks/forms/contact-form";
 import type { FormContactMapBlock } from "@/components/blocks/forms/contact-map";
 import type { LocationMapBlock } from "@/components/blocks/location/location-map";
 import type { RichTextBlockProps } from "@/components/blocks/rich-text-block";
-
 type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];
 type ExtendedBlock =
   | Block
@@ -60,6 +59,8 @@ const componentLoaders = {
     import("@/components/blocks/menu/google-menu-section").then((mod) => mod.default),
   "rich-text-block": () =>
     import("@/components/blocks/rich-text-block").then((mod) => mod.default),
+  "product-grid": () =>
+    import("@/components/blocks/product-grid").then((mod) => mod.default),
 } satisfies BlockRenderers;
 
 export default async function Blocks({ blocks }: { blocks: ExtendedBlock[] }) {

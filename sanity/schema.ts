@@ -9,6 +9,8 @@ import faq from "./schemas/documents/faq";
 import testimonial from "./schemas/documents/testimonial";
 import navigation from "./schemas/documents/navigation";
 import settings from "./schemas/documents/settings";
+import product from "./schemas/documents/product";
+import collection from "./schemas/documents/collection";
 
 // Schema UI shared objects
 import blockContent from "./schemas/blocks/shared/block-content";
@@ -16,6 +18,7 @@ import link from "./schemas/blocks/shared/link";
 import { colorVariant } from "./schemas/blocks/shared/color-variant";
 import { buttonVariant } from "./schemas/blocks/shared/button-variant";
 import sectionPadding from "./schemas/blocks/shared/section-padding";
+import productVariant from "./schemas/objects/product-variant";
 // Schema UI objects
 import hero1 from "./schemas/blocks/hero/hero-1";
 import hero2 from "./schemas/blocks/hero/hero-2";
@@ -35,6 +38,7 @@ import gridCard from "./schemas/blocks/grid/grid-card";
 import pricingCard from "./schemas/blocks/grid/pricing-card";
 import gridPost from "./schemas/blocks/grid/grid-post";
 import gridRow from "./schemas/blocks/grid/grid-row";
+import productGrid from "./schemas/blocks/product-grid";
 import carousel1 from "./schemas/blocks/carousel/carousel-1";
 import carousel2 from "./schemas/blocks/carousel/carousel-2";
 import imageGallery from "./schemas/blocks/gallery/image-gallery";
@@ -64,12 +68,15 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     testimonial,
     navigation,
     settings,
+    product,
+    collection,
     // shared objects
     blockContent,
     link,
     colorVariant,
     buttonVariant,
     sectionPadding,
+    productVariant,
     // blocks
     hero1,
     hero2,
@@ -89,6 +96,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     pricingCard,
     gridPost,
     gridRow,
+    productGrid,
     carousel1,
     carousel2,
     imageGallery,

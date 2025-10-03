@@ -7,6 +7,8 @@ import { stegaClean } from 'next-sanity';
 import PortableTextRenderer from '@/components/portable-text-renderer';
 import { FadeIn } from '@/components/ui/fade.in';
 import { PAGE_QUERYResult } from '@/sanity.types';
+import { getHeroTitleClasses } from '@/lib/styles/hero';
+import { cn } from '@/lib/utils';
 
 type Hero1Props = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>['blocks']>[number],
@@ -19,6 +21,7 @@ export default function Hero1({
   body,
   image,
   links,
+  titleStyle,
 }: Hero1Props) {
   const dimensions = image?.asset?.metadata?.dimensions;
   const intrinsicWidth = Math.round(dimensions?.width ?? 1400);
@@ -43,6 +46,8 @@ export default function Hero1({
       : heroImageBuilder.url();
   }
 
+  const titleClasses = getHeroTitleClasses(titleStyle, { fontSize: 'md' });
+
   return (
     <div className="container dark:bg-background py-20 lg:pt-40">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -56,7 +61,7 @@ export default function Hero1({
             <FadeIn
               as="h2"
               delay={220}
-              className="mt-6 text-4xl font-bold leading-[1.1] md:text-5xl lg:text-6xl"
+              className={cn('mt-6 leading-[1.1]', titleClasses)}
             >
               {title}
             </FadeIn>

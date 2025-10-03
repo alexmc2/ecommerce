@@ -23,6 +23,7 @@ import { menuSectionQuery } from "./menu-section";
 import { menuGoogleSectionQuery } from "./menu-google-section";
 import { lottieAnimationQuery } from "./lottie-animation";
 import { richTextBlockQuery } from "./rich-text-block";
+import { productGridQuery } from "./product/product-grid";
 
 export const PAGE_QUERY = groq`
   *[_type == "page" && slug.current == $slug][0]{
@@ -50,6 +51,7 @@ export const PAGE_QUERY = groq`
       ${allPostsQuery},
       ${menuSectionQuery},
       ${menuGoogleSectionQuery},
+      ${productGridQuery},
     },
     meta_title,
     meta_description,

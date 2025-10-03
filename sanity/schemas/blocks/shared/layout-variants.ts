@@ -77,3 +77,22 @@ export const RICH_TEXT_SPACING = [
   { title: "Comfortable", value: "comfortable" },
   { title: "Spacious", value: "spacious" },
 ];
+
+export const HERO_TITLE_FONT_FAMILY = RICH_TEXT_FONT_FAMILY;
+
+export const HERO_TITLE_FONT_WEIGHT = [
+  { title: "Light", value: "light" },
+  { title: "Regular", value: "normal" },
+  { title: "Medium", value: "medium" },
+  { title: "Semibold", value: "semibold" },
+  { title: "Bold", value: "bold" },
+  { title: "Extra Bold", value: "extrabold" },
+];
+
+export const HERO_TITLE_FONT_SIZE = [
+  { title: "Small", value: "sm" },
+  { title: "Medium", value: "md" },
+  { title: "Large", value: "lg" },
+  { title: "XL", value: "xl" },
+  { title: "Display", value: "2xl" },
+];

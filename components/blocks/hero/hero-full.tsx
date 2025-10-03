@@ -6,21 +6,14 @@ import { urlFor } from '@/sanity/lib/image';
 import PortableTextRenderer from '@/components/portable-text-renderer';
 import { FadeIn } from '@/components/ui/fade.in';
 import { cn } from '@/lib/utils';
+import { PAGE_QUERYResult } from '@/sanity.types';
+import { getHeroTitleClasses } from '@/lib/styles/hero';
 import { HeroFullCarousel } from './hero-full-carousel';
 
-type HeroFullProps = {
-  tagLine?: string | null;
-  title?: string | null;
-  body?: any;
-  image?: any;
-  images?: any[] | null;
-  height?: 'screen' | '70vh' | '60vh' | null;
-  overlay?: boolean | null;
-  frosted?: boolean | null;
-  overlayStrength?: number | null;
-  contentAlignment?: 'left' | 'center' | 'right' | null;
-  initialHeaderVisible?: boolean | null;
-};
+type HeroFullProps = Extract<
+  NonNullable<NonNullable<PAGE_QUERYResult>['blocks']>[number],
+  { _type: 'hero-full' }
+>;
 
 export default function HeroFull({
   tagLine,
@@ -34,6 +27,7 @@ export default function HeroFull({
   overlayStrength = 50,
   contentAlignment = 'center',
   initialHeaderVisible = false,
+  titleStyle,
 }: HeroFullProps) {
   const isFullScreen = !height || height === 'screen';
   const resolvedMinHeight = !isFullScreen ? height || '60vh' : undefined;
@@ -84,6 +78,10 @@ export default function HeroFull({
       ? `calc(100vh + ${headerHeightVar})`
       : `calc(${resolvedMinHeight ?? '60vh'} + ${headerHeightVar})`,
   };
+
+  const resolvedTitleClasses = getHeroTitleClasses(titleStyle, {
+    fontSize: 'lg',
+  });
 
   return (
     <section
@@ -150,7 +148,11 @@ export default function HeroFull({
               </FadeIn>
             )}
             {title && (
-              <FadeIn as="h1" delay={200} className=" text-4.5xl md:text-7xl">
+              <FadeIn
+                as="h1"
+                delay={200}
+                className={cn(resolvedTitleClasses, 'leading-tight')}
+              >
                 {title}
               </FadeIn>
             )}
